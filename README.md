@@ -16,7 +16,7 @@ No bloated onboarding. Spin up the engine, equip the weapon, and pull the trigge
 Clone the repository and bring up the Ironclad backend using Docker Compose. This maps the FastAPI analysis engine to your local environment.
 
 ```bash
-git clone [https://github.com/void-architect-lab/project-ironclad.git](https://github.com/void-architect-lab/project-ironclad.git)
+git clone https://github.com/void-architect-lab/project-ironclad.git
 cd project-ironclad/backend
 cp .env.example .env
 docker compose up -d
