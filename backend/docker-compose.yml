@@ -1,0 +1,22 @@
+services:
+  ironclad:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ironclad_backend
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    volumes:
+      - ironclad_logs:/app/logs
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8080/api/v1/health/liveness')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+volumes:
+  ironclad_logs:
+    driver: local
